@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import style from "./Navigation.module.css";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  authenticateUser,
+  authenticationSelector,
+} from "../../redux/authSlice/authSlice";
+import { StoreDispatch } from "../../redux/store";
 type Route = {
   name: string;
   to: string;
+  requiresAuth: boolean;
 };
 const animationVariants = {
   visible: {
@@ -36,10 +43,14 @@ const loginButtonVariants = {
 };
 const Navigation = () => {
   const routes: Set<Route> = new Set<Route>([
-    { name: "Home", to: "/home" },
-    { name: "Favourites", to: "/favourites" },
-    { name: "Details", to: "/details" },
+    { name: "Home", to: "/home", requiresAuth: false },
+    { name: "Favourites", to: "/favourites", requiresAuth: true },
+    { name: "Details", to: "/details", requiresAuth: false },
   ]);
+  const links = [...routes];
+  const { isAuthenticated } = useSelector(authenticationSelector);
+  console.log(isAuthenticated);
+  const dispatch = useDispatch<StoreDispatch>();
   return (
     <motion.nav
       variants={animationVariants}
@@ -49,29 +60,38 @@ const Navigation = () => {
       className={style["main-nav"]}
     >
       <ul className={style["nav-links"]}>
-        {[...routes].map((route) => (
-          <motion.li variants={linkAnimationVariants} key={route.to}>
-            <NavLink
-              to={route.to}
-              className={({ isActive }) =>
-                isActive ? style["active-route"] : ""
-              }
-            >
-              {route.name}
-            </NavLink>
-          </motion.li>
-        ))}
+        {links
+          .filter((route) => {
+            return !route.requiresAuth || isAuthenticated;
+          })
+          .map((route) => (
+            <motion.li variants={linkAnimationVariants} key={route.to}>
+              <NavLink
+                to={route.to}
+                className={({ isActive }) =>
+                  isActive ? style["active-route"] : ""
+                }
+              >
+                {route.name}
+              </NavLink>
+            </motion.li>
+          ))}
       </ul>
-      <div className={style["account-actions__container"]}>
-        <motion.button
-          variants={loginButtonVariants}
-          className={style["login-btn"]}
-          type="button"
-          aria-label="login"
-        >
-          Login
-        </motion.button>
-      </div>
+      {!isAuthenticated ? (
+        <div className={style["account-actions__container"]}>
+          <motion.button
+            variants={loginButtonVariants}
+            className={style["login-btn"]}
+            onClick={async () => await dispatch(authenticateUser())}
+            type="button"
+            aria-label="login"
+          >
+            Login
+          </motion.button>
+        </div>
+      ) : (
+        <></>
+      )}
     </motion.nav>
   );
 };
