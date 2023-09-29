@@ -1,0 +1,32 @@
+.main-nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+}
+.nav-links a {
+  color: var(--main-link-color);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.login-btn {
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--main-button-color);
+  border: none;
+  background-color: var(--main-button-background-color);
+}
+.nav-links a.active-route {
+  color: var(--main-active-link-color);
+}
+.account-actions__container {
+  overflow: hidden;
+}
