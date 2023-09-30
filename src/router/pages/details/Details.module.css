@@ -1,0 +1,6 @@
+.crypto-table {
+  border-spacing: 1rem;
+  border-collapse: collapse;
+  margin: 0rem auto;
+  overflow-x: scroll;
+}
