@@ -49,7 +49,6 @@ const Navigation = () => {
   ]);
   const links = [...routes];
   const { isAuthenticated } = useSelector(authenticationSelector);
-  console.log(isAuthenticated);
   const dispatch = useDispatch<StoreDispatch>();
   return (
     <motion.nav
