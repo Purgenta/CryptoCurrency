@@ -18,6 +18,7 @@ type Props = {
   information: TradingPairInformation[];
 };
 const TradingPairTable = ({ information }: Props) => {
+  if (information.length === 0) return <></>;
   return (
     <table className={style["crypto-table"]}>
       <thead>

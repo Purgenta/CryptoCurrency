@@ -45,7 +45,6 @@ const Navigation = () => {
   const routes: Set<Route> = new Set<Route>([
     { name: "Home", to: "/home", requiresAuth: false },
     { name: "Favourites", to: "/favourites", requiresAuth: true },
-    { name: "Details", to: "/details", requiresAuth: false },
   ]);
   const links = [...routes];
   const { isAuthenticated } = useSelector(authenticationSelector);

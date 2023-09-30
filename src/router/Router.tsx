@@ -4,6 +4,7 @@ import ProtectedRoute from "../misc/ProtectedRoute";
 import NotAuthenticated from "./pages/notauthenicated/NotAuthenticated";
 import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
+import Favourites from "./pages/favourites/Favourites";
 const Router = () => {
   return (
     <Routes>
@@ -11,7 +12,7 @@ const Router = () => {
         <Route path="/" element={<></>}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route element={<ProtectedRoute />}>
-          <Route path="/favourites" element={<></>}></Route>
+          <Route path="/favourites" element={<Favourites />}></Route>
         </Route>
         <Route path="/details/:symbol" element={<Details />}></Route>
         <Route path="/notauthenticated" element={<NotAuthenticated />}></Route>
