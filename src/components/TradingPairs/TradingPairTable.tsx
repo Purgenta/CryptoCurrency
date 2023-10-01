@@ -43,7 +43,16 @@ const TradingPairTable = ({ information }: Props) => {
                 <NavLink to={`/details/${info.name}`}>{info.name}</NavLink>
               </td>
               <td>{info.lastPrice.toLocaleString("en-US")}</td>
-              <td>{info.dailyChange.toLocaleString("en-US")}</td>
+              <td>
+                <span className={style["change-direction"]}>
+                  {info.dailyChange > 0 ? (
+                    <FontAwesomeIcon icon={faArrowUp} />
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowDown} />
+                  )}
+                </span>
+                {Math.abs(info.dailyChange).toFixed(2)}
+              </td>
               <td>
                 <span className={style["change-direction"]}>
                   {info.dailyChangeRelative > 0 ? (

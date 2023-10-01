@@ -13,7 +13,7 @@ import { StoreDispatch } from "../../../redux/store";
 import { authenticationSelector } from "../../../redux/authSlice/authSlice";
 const Details = () => {
   const { symbol } = useParams();
-  const { data } = useGetCurrencyDetailsQuery(symbol + "");
+  const { data, isError } = useGetCurrencyDetailsQuery(symbol + "");
   const { isAuthenticated } = useSelector(authenticationSelector);
   const isFavourite = useSelector(favouriteSelector).items.find(
     (item) => item === symbol
@@ -27,28 +27,33 @@ const Details = () => {
   };
   return (
     <div className={style["container"]}>
-      <div className={"table-wrapper"}>
-        <table className={"crypto-table"}>
-          <thead>
-            <tr>
-              <th>Symbol</th>
-              <th>Last price</th>
-              <th>High</th>
-              <th>Low</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{symbol}</td>
-              <td>{data?.last_price}</td>
-              <td>{data?.high}</td>
-              <td>{data?.low}</td>
-            </tr>
-          </tbody>
-          <tfoot></tfoot>
-        </table>
-      </div>
-      {isAuthenticated ? (
+      {isError ? <h3>Something went wrong</h3> : <></>}
+      {!isError && data ? (
+        <div className={"table-wrapper"}>
+          <table className={"crypto-table"}>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Last price</th>
+                <th>High</th>
+                <th>Low</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{symbol}</td>
+                <td>{data?.last_price}</td>
+                <td>{data?.high}</td>
+                <td>{data?.low}</td>
+              </tr>
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        </div>
+      ) : (
+        <></>
+      )}
+      {!isError && data && isAuthenticated ? (
         <div className={style["favourite-control"]}>
           {isFavourite ? (
             <button

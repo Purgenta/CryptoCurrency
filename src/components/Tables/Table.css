@@ -6,7 +6,7 @@
   width: 100%;
 }
 .crypto-table tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 }
 .crypto-table thead th {
   padding: 0.5rem;
