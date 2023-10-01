@@ -1,21 +1,18 @@
-.crypto-table {
-  border-spacing: 1rem;
-  border-collapse: collapse;
-  margin: 0rem auto;
-  overflow-x: scroll;
+.add-btn {
+  background-color: var(--main-button-background-color);
 }
-.crypto-table tr {
-  border-bottom: 1px solid black;
+.add-btn,
+.remove-btn {
+  border: none;
+  padding: 0.6rem 1.4rem;
+  color: var(--main-button-color);
+  font-size: 1rem;
 }
-.crypto-table thead th {
-  padding: 0.5rem;
+.remove-btn {
+  background-color: var(--main-button-danger);
 }
-.crypto-table thead td:first-of-type {
-  text-align: left;
-}
-.crypto-table > tbody td {
-  padding: 0.8rem;
-}
-.crypto-table tr td:first-of-type {
-  min-width: 200px;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

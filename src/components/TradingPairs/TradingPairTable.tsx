@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import style from "./TradingPairTable.module.css";
+import "../Tables/Table.css";
 export type TradingPairInformation = {
   name: string;
   channelId: number;
@@ -20,7 +20,7 @@ type Props = {
 const TradingPairTable = ({ information }: Props) => {
   if (information.length === 0) return <></>;
   return (
-    <table className={style["crypto-table"]}>
+    <table className={"crypto-table"}>
       <thead>
         <tr>
           <th>Name</th>
@@ -40,7 +40,7 @@ const TradingPairTable = ({ information }: Props) => {
               </td>
               <td>{info.lastPrice.toLocaleString("en-US")}</td>
               <td>{info.dailyChange.toLocaleString("en-US")}</td>
-              <td>{info.dailyChangeRelative.toFixed(5)}%</td>
+              <td>{info.dailyChangeRelative.toFixed(2)}%</td>
               <td>{info.high.toLocaleString("en-US")}</td>
               <td>{info.low.toLocaleString("en-US")}</td>
             </tr>

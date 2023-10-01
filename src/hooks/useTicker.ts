@@ -7,6 +7,11 @@ const useTicker = (tradingPairs: string[]) => {
     Omit<TradingPairInformation, "name">[]
   >([]);
   const [channels, setChannels] = useState<ChannelInfo[]>([]);
+  useEffect(() => {
+    return () => {
+      socket?.close();
+    };
+  }, []);
   const updateTradingPair = (information: Array<number | number[]>) => {
     const data = information[1] as number[];
     const channelId = +information[0] as number;

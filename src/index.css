@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 :root {
   --main-font-family: "Open Sans", sans-serif;
-  --main-link-color: rgb(157, 198, 231);
+  --main-link-color: rgb(75, 192, 212);
   --main-active-link-color: rgb(77, 83, 90);
-  --main-button-background-color: rgb(157, 198, 231);
+  --main-button-background-color: rgb(75, 192, 212);
   --main-button-color: rgb(250, 248, 245);
-  --main-container-background-color: rgb(250, 248, 248);
+  --main-button-danger: rgb(173, 67, 67);
+  --main-highlight-color: rgb(173, 67, 67);
+  --main-container-background-color: rgb(252, 251, 251);
 }
 * {
   box-sizing: border-box;
@@ -17,9 +19,17 @@ body {
   font-family: var(--main-font-family);
   flex-direction: column;
   min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(190, 190, 190);
+}
+#root {
+  flex-grow: 2;
+}
+#main-header,
+#main-footer {
+  box-shadow: 0.2rem 0.2rem rgb(156, 142, 142);
   background-color: var(--main-container-background-color);
 }
-#main-header {
-  flex-grow: 1;
-  box-shadow: 0.2rem 0.2rem rgb(156, 142, 142);
+a:visited {
+  color: var(--main-link-color);
 }
