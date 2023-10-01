@@ -1,5 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "../Tables/Table.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons/faArrowDown";
+import style from "./TradingPairTable.module.css";
 export type TradingPairInformation = {
   name: string;
   channelId: number;
@@ -40,7 +44,16 @@ const TradingPairTable = ({ information }: Props) => {
               </td>
               <td>{info.lastPrice.toLocaleString("en-US")}</td>
               <td>{info.dailyChange.toLocaleString("en-US")}</td>
-              <td>{info.dailyChangeRelative.toFixed(2)}%</td>
+              <td>
+                <span className={style["change-direction"]}>
+                  {info.dailyChangeRelative > 0 ? (
+                    <FontAwesomeIcon icon={faArrowUp} />
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowDown} />
+                  )}
+                </span>
+                {Math.abs(info.dailyChangeRelative).toFixed(2)}%
+              </td>
               <td>{info.high.toLocaleString("en-US")}</td>
               <td>{info.low.toLocaleString("en-US")}</td>
             </tr>

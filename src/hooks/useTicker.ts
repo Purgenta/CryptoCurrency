@@ -11,7 +11,7 @@ const useTicker = (tradingPairs: string[]) => {
     return () => {
       socket?.close();
     };
-  }, []);
+  }, [socket]);
   const updateTradingPair = (information: Array<number | number[]>) => {
     const data = information[1] as number[];
     const channelId = +information[0] as number;

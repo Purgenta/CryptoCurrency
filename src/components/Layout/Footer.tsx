@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./Footer.module.css";
+import Currencies from "../Currencies/Currencies";
 const Footer = () => {
   return (
     <div>
-      <h3 className={style["copyright"]}>
-        Developed by Purgenta <br></br> All rights reserved.
-      </h3>
+      <Currencies />
+      <h3 className={style["copyright"]}>Developed by Purgenta</h3>
     </div>
   );
 };

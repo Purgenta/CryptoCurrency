@@ -1,13 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;1,6..12,400&display=swap");
 :root {
-  --main-font-family: "Open Sans", sans-serif;
+  --main-font-family: "Nunito Sans", sans-serif;
   --main-link-color: rgb(75, 192, 212);
   --main-active-link-color: rgb(77, 83, 90);
   --main-button-background-color: rgb(75, 192, 212);
-  --main-button-color: rgb(250, 248, 245);
+  --main-button-color: #f1f1f1;
   --main-button-danger: rgb(173, 67, 67);
+  --main-text-color: rgb(243, 242, 242);
   --main-highlight-color: rgb(173, 67, 67);
-  --main-container-background-color: rgb(252, 251, 251);
+
+  --main-container-background-color: #27005d;
 }
 * {
   box-sizing: border-box;
@@ -18,17 +20,28 @@ body {
   display: flex;
   font-family: var(--main-font-family);
   flex-direction: column;
+  align-items: center;
   min-width: 100vw;
   min-height: 100vh;
+  background-image: url("/abstract-technological-background_23-2148897676\ \(1\).avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: rgb(190, 190, 190);
+  color: var(--main-text-color);
 }
 #root {
   flex-grow: 2;
+  width: 100%;
+  max-width: 1000px;
 }
 #main-header,
 #main-footer {
-  box-shadow: 0.2rem 0.2rem rgb(156, 142, 142);
-  background-color: var(--main-container-background-color);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+#main-footer {
+  padding: 0.5rem 1rem;
 }
 a:visited {
   color: var(--main-link-color);

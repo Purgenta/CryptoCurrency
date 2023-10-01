@@ -24,7 +24,7 @@
   background-color: var(--main-button-background-color);
 }
 .nav-links a.active-route {
-  color: var(--main-active-link-color);
+  color: var(--main-text-color);
 }
 .account-actions__container {
   overflow: hidden;
