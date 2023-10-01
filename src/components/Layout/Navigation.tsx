@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import style from "./Navigation.module.css";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import {
   authenticateUser,
   authenticationSelector,
@@ -80,7 +81,10 @@ const Navigation = () => {
           <motion.button
             variants={loginButtonVariants}
             className={style["login-btn"]}
-            onClick={async () => await dispatch(authenticateUser())}
+            onClick={async () => {
+              await dispatch(authenticateUser());
+              toast.success("Succesfull login");
+            }}
             type="button"
             aria-label="login"
           >

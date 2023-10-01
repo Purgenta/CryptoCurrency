@@ -1,0 +1,40 @@
+.crypto-table {
+  border-spacing: 1rem;
+  border-collapse: collapse;
+  margin: 0rem auto;
+  max-width: 1000px;
+  width: 100%;
+}
+.crypto-table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+}
+.crypto-table thead th {
+  padding: 0.5rem;
+  text-align: right;
+}
+.crypto-table th:first-of-type {
+  text-align: left;
+}
+.crypto-table > tbody td {
+  padding: 0.8rem;
+  text-align: right;
+}
+.crypto-table > tbody td:first-of-type {
+  text-align: left;
+}
+.crypto-table tr td:first-of-type {
+  min-width: 200px;
+}
+.crypto-table tr:last-of-type {
+  border-bottom: none;
+}
+.table-wrapper {
+  background-color: var(--main-container-background-color);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0.2rem;
+  min-width: 350px;
+  max-width: 1000px;
+  overflow: auto;
+  padding: 0.2rem 0.4rem;
+  flex-grow: 1;
+}

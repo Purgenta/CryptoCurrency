@@ -1,0 +1,9 @@
+.favourites-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.favourites-container h3 {
+  text-decoration: underline;
+}

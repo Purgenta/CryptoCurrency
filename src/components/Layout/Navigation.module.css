@@ -3,7 +3,7 @@
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
 }
 .nav-links {
   list-style-type: none;
@@ -17,15 +17,14 @@
   text-transform: capitalize;
 }
 .login-btn {
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1.6rem;
   font-weight: bold;
-  font-size: 1rem;
   color: var(--main-button-color);
   border: none;
   background-color: var(--main-button-background-color);
 }
 .nav-links a.active-route {
-  color: var(--main-active-link-color);
+  color: var(--main-text-color);
 }
 .account-actions__container {
   overflow: hidden;

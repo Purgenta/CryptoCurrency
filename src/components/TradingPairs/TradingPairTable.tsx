@@ -1,4 +1,8 @@
 import { NavLink } from "react-router-dom";
+import "../Tables/Table.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons/faArrowDown";
 import style from "./TradingPairTable.module.css";
 export type TradingPairInformation = {
   name: string;
@@ -20,7 +24,7 @@ type Props = {
 const TradingPairTable = ({ information }: Props) => {
   if (information.length === 0) return <></>;
   return (
-    <table className={style["crypto-table"]}>
+    <table className={"crypto-table"}>
       <thead>
         <tr>
           <th>Name</th>
@@ -39,8 +43,26 @@ const TradingPairTable = ({ information }: Props) => {
                 <NavLink to={`/details/${info.name}`}>{info.name}</NavLink>
               </td>
               <td>{info.lastPrice.toLocaleString("en-US")}</td>
-              <td>{info.dailyChange.toLocaleString("en-US")}</td>
-              <td>{info.dailyChangeRelative.toFixed(5)}%</td>
+              <td>
+                <span className={style["change-direction"]}>
+                  {info.dailyChange > 0 ? (
+                    <FontAwesomeIcon icon={faArrowUp} />
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowDown} />
+                  )}
+                </span>
+                {Math.abs(info.dailyChange).toFixed(2)}
+              </td>
+              <td>
+                <span className={style["change-direction"]}>
+                  {info.dailyChangeRelative > 0 ? (
+                    <FontAwesomeIcon icon={faArrowUp} />
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowDown} />
+                  )}
+                </span>
+                {Math.abs(info.dailyChangeRelative).toFixed(2)}%
+              </td>
               <td>{info.high.toLocaleString("en-US")}</td>
               <td>{info.low.toLocaleString("en-US")}</td>
             </tr>
