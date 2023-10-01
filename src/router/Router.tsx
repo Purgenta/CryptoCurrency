@@ -3,16 +3,16 @@ import { lazy, Suspense } from "react";
 import Layout from "../components/Layout/Layout";
 import ProtectedRoute from "../misc/ProtectedRoute";
 import NotAuthenticated from "./pages/notauthenicated/NotAuthenticated";
-import ClipLoader from "react-spinners/ClipLoader";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/notfound/NotFound";
+import Loader from "../components/Suspense/Loader";
 const Router = () => {
   const Details = lazy(() => import("../router/pages/details/Details"));
   const Favourites = lazy(
     () => import("../router/pages/favourites/Favourites")
   );
   return (
-    <Suspense fallback={<ClipLoader loading={true} />}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/home" element={<Home />}></Route>
